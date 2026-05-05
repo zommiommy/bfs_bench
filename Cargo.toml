@@ -1,0 +1,17 @@
+[package]
+name = "bfs_bench"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+webgraph = {git="https://github.com/vigna/webgraph-rs.git"}
+roaring = "0.10.10"
+fastbloom = "0.9.0"
+sux = "0.5.0"
+common_traits = "0.11.2"
+anyhow = "1.0.96"
+fxhash = "0.2.1"
+ahash = "0.8.11"
+wyhash = "0.6.0"
+rapidhash = "1.4.0"
+xxhash-rust = { version = "0.8.15", features = ["xxh3"] }
