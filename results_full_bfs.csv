@@ -1,0 +1,671 @@
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          46253152
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          45093473
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          46353892
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52498853
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          56885678
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          51935974
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          74708045
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44437394
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44430304
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45865992
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52290744
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          57413387
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          51277125
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          71102930
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44223934
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44341544
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45854071
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52335284
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          56991377
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          50744686
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          70679631
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44255633
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44418164
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45941151
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52507723
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          57313667
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          50820236
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          71396569
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45368692
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44526094
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45882132
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52342493
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          56695298
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          50558936
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          70965459
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44250994
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44685093
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          46170651
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52096294
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          56737257
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          50407756
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          70435900
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44347373
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44482144
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45815272
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52207113
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          55665919
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          50416216
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          80925467
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44885763
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44829793
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          46420991
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52608563
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          55102889
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          50202106
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          70183030
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44611073
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44289853
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45541032
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          51996703
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          56482948
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          49771327
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          71002249
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44006904
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44187864
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45610751
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52226543
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          56295188
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          49840986
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          69746581
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44059904
+/home/zom/graphs/dblp-2010      	alloc::vec::Vec<bool>                                                                                                   	          44134043
+/home/zom/graphs/dblp-2010      	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	          45588921
+/home/zom/graphs/dblp-2010      	roaring::treemap::RoaringTreemap                                                                                        	          52011363
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	          55109340
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	          49870946
+/home/zom/graphs/dblp-2010      	std::collections::hash::set::HashSet<usize>                                                                             	          69961631
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3310849782
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3393243306
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3394072155
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4223810444
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5833247352
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5169232823
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        8245649035
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3348044012
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3353404030
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3342693210
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4172737959
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5627286359
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5154952505
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        8508167850
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3324238980
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3383870774
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3388622194
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4219757276
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5503011682
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5121840580
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        8478470092
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3345229647
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3360458802
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3346522677
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4205941433
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5665192485
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5127122135
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7998174834
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3350603427
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3379373888
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3389876511
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4198126208
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5345108823
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4881424230
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7621692520
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3368239606
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3378450981
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3383541725
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4208911150
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5320393353
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4853697518
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7575488802
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3332834669
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3377542656
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3389241459
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4204513959
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5347090717
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4915177837
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7601404697
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3319828091
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3381033222
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3385253861
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4198172395
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5294562544
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4907496712
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7580104314
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3329106306
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3385447044
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3364572811
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4195033349
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5440701459
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4867052667
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7700037926
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3331252352
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3375871124
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3373310462
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4203272737
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5391125445
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4905524309
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7603895377
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3316588324
+/home/zom/graphs/hollywood-2011 	alloc::vec::Vec<bool>                                                                                                   	        3377861675
+/home/zom/graphs/hollywood-2011 	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3378487887
+/home/zom/graphs/hollywood-2011 	roaring::treemap::RoaringTreemap                                                                                        	        4208780123
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5432201181
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        4923629339
+/home/zom/graphs/hollywood-2011 	std::collections::hash::set::HashSet<usize>                                                                             	        7564238764
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3113021927
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3168724732
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3149415747
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3785357202
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5762957658
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5279245348
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7406329039
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3108598602
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3147467838
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3154312940
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3792307981
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5700728137
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5260756320
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7456722769
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3113876977
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3155213434
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3140985572
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3787428633
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5699113299
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5346250338
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7483818540
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3103999882
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3162510183
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3151179755
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3789703370
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5691932985
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5241517644
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7360202834
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3118896873
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3161487764
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3148815221
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3774907198
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5666736941
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5268903876
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7243908073
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3081900494
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3131300535
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3130429783
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3784829813
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5640128883
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5286383121
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7338992096
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3088046410
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3135569324
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3125312608
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3762253327
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5657335484
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5257413317
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7329541698
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3101970951
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3161080713
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3143416768
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3791452998
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5689498045
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5231330822
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7433800400
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3103873084
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3165265617
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3128038930
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3840531910
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5895474511
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5545171979
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7670994823
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3141623658
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3107972483
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3125326387
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3745710719
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5556226828
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5137818454
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7238784698
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3061815234
+/home/zom/graphs/enwiki-2015    	alloc::vec::Vec<bool>                                                                                                   	        3104624668
+/home/zom/graphs/enwiki-2015    	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	        3114609659
+/home/zom/graphs/enwiki-2015    	roaring::treemap::RoaringTreemap                                                                                        	        3762794824
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	        5588846283
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	        5169591138
+/home/zom/graphs/enwiki-2015    	std::collections::hash::set::HashSet<usize>                                                                             	        7257517028
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320720526
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         318633013
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         328386704
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         413559063
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         432664526
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         372093324
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         565273985
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         318746212
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         317506735
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         330302757
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         415057877
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         425590465
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         382101394
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         566218481
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320167956
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         322460200
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         324426383
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         409358152
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         416807800
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         372912740
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         564748354
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         317092195
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         315009560
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         324912351
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         409722771
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         421097197
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         371591843
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         562048150
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320508823
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         316788224
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         326104876
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         411549525
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         424050877
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         372889208
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         579726396
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         317326362
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         314978319
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         325347308
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         409354619
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         417496565
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         392099900
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         571607638
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         317892239
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         318084358
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         326076144
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         418587850
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         421460383
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         373446434
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         564223079
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320002772
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         322954653
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         324432689
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         410024735
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         421884100
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         376362434
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         564800166
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         316836530
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         315682383
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         324257768
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         409951294
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         428867297
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         371627038
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         562275981
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         317873257
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         317188759
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         326768280
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         416098264
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         421339188
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         371721656
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         569333129
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         318759383
+/home/zom/graphs/in-2004        	alloc::vec::Vec<bool>                                                                                                   	         318894672
+/home/zom/graphs/in-2004        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	         326675920
+/home/zom/graphs/in-2004        	roaring::treemap::RoaringTreemap                                                                                        	         411795406
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	         417668679
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	         370809377
+/home/zom/graphs/in-2004        	std::collections::hash::set::HashSet<usize>                                                                             	         569486707
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       24773115931
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25311495164
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25566571009
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39726227862
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52136049700
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       47134485698
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       76904921549
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25045413500
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25575333259
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       26448931521
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       40437055841
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       54946025700
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       48750675323
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       78211820545
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25346045185
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25972387099
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       26021226138
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39663440859
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52213719779
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46897937803
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75638069788
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       24977865984
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25484002087
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25909679405
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39904307044
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52470922706
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46818330002
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75713145562
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25014990967
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25543396308
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25875161647
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39902049763
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52215834161
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46855007866
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75678285419
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25034325755
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25577716826
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25923689289
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39785222345
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52203837011
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46888683696
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75860659120
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25122412887
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25571378316
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25952921002
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39967990417
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52255385888
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       47029839550
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       76004757504
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25230460228
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25675785437
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       26069330158
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39417504198
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       51924554307
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46621654941
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75587431617
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       24827436945
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25245670866
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25562010754
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39808796065
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52294301126
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       47008055036
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75971212839
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25224807977
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25745983300
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       26098476022
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39772878195
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       51994275544
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46735806461
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75679857796
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       24987437973
+/home/zom/graphs/webbase-2001   	alloc::vec::Vec<bool>                                                                                                   	       25583739103
+/home/zom/graphs/webbase-2001   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       25872721102
+/home/zom/graphs/webbase-2001   	roaring::treemap::RoaringTreemap                                                                                        	       39819607306
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	       52317017433
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	       46880536226
+/home/zom/graphs/webbase-2001   	std::collections::hash::set::HashSet<usize>                                                                             	       75592453523
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33194674303
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       39976272715
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33713493337
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47816865392
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      112869530335
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      102451274472
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      163230478084
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33304225927
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       40103010638
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33751138707
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       48038788909
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      112126656247
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      100872447468
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      160157024875
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33302495312
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       39915088210
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33637173978
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       48027326696
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      111907105961
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      101078306110
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      161439457693
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33297381368
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       39919095371
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33575566361
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47846631978
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      111867708523
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      101113357468
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      162845269726
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33426829358
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       40114609033
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33725330116
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       48036533576
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      111906955780
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      101011289244
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      160665794197
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33340831498
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       40054994262
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33620460860
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47798686243
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      111627378089
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      101317055713
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      160137187630
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33233699915
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       39917122571
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33643245555
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47922662755
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      112450200409
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      100948360821
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      161579002116
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33165884285
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       39918160123
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33633606357
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47895998709
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      112050140325
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      100906587457
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      162050560349
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33344950732
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       40134533176
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33776069750
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47973641821
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      112045117568
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      100930516548
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      161608568325
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33319312660
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       40055267351
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33629486426
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47867746590
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      111772873074
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      101240581312
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      160686485196
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33251841239
+/home/zom/graphs/twitter-2010   	alloc::vec::Vec<bool>                                                                                                   	       39993489925
+/home/zom/graphs/twitter-2010   	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	       33564574091
+/home/zom/graphs/twitter-2010   	roaring::treemap::RoaringTreemap                                                                                        	       47836039579
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	      111474934390
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	      101006470520
+/home/zom/graphs/twitter-2010   	std::collections::hash::set::HashSet<usize>                                                                             	      160826531573
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1019588329460
+/home/zom/graphs/eu-2015        	alloc::vec::Vec<bool>                                                                                                   	     1027515108266
+/home/zom/graphs/eu-2015        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	     1046662854675
+/home/zom/graphs/eu-2015        	roaring::treemap::RoaringTreemap                                                                                        	     2388404523112
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	     1997650016741
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	     1753415291681
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize>                                                                             	     3049413369329
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1020063361843
+/home/zom/graphs/eu-2015        	alloc::vec::Vec<bool>                                                                                                   	     1047866816698
+/home/zom/graphs/eu-2015        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	     1067776901112
+/home/zom/graphs/eu-2015        	roaring::treemap::RoaringTreemap                                                                                        	     2405757365428
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	     2125245461644
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	     1836305021279
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize>                                                                             	     3171629039452
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1027069378025
+/home/zom/graphs/eu-2015        	alloc::vec::Vec<bool>                                                                                                   	     1035742052788
+/home/zom/graphs/eu-2015        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	     1054589812686
+/home/zom/graphs/eu-2015        	roaring::treemap::RoaringTreemap                                                                                        	     2403995169480
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	     2034180130950
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	     1817943629050
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize>                                                                             	     3103605081933
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1028318715325
+/home/zom/graphs/eu-2015        	alloc::vec::Vec<bool>                                                                                                   	     1038597347123
+/home/zom/graphs/eu-2015        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	     1060372949010
+/home/zom/graphs/eu-2015        	roaring::treemap::RoaringTreemap                                                                                        	     2404169274727
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	     2020619362362
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	     1772761551132
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize>                                                                             	     3151117360749
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1023155348180
+/home/zom/graphs/eu-2015        	alloc::vec::Vec<bool>                                                                                                   	     1032184894005
+/home/zom/graphs/eu-2015        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	     1051978062630
+/home/zom/graphs/eu-2015        	roaring::treemap::RoaringTreemap                                                                                        	     2380055670868
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	     2021757545992
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	     1776369868816
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize>                                                                             	     3110922564395
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1030203785778
+/home/zom/graphs/eu-2015        	alloc::vec::Vec<bool>                                                                                                   	     1040101345195
+/home/zom/graphs/eu-2015        	bfs_bench::adaptive_node_set::AdaptiveNodeSet                                                                           	     1057688350846
+/home/zom/graphs/eu-2015        	roaring::treemap::RoaringTreemap                                                                                        	     2374794065313
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<ahash::aes_hash::AHasher>>                   	     2016686763246
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize, core::hash::BuildHasherDefault<fxhash::FxHasher>>                           	     1774102395802
+/home/zom/graphs/eu-2015        	std::collections::hash::set::HashSet<usize>                                                                             	     3100978059247
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          46513683
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         135327265
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45503666
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         132287896
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44525580
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         133321682
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3357738053
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13137619048
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3344973079
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13122773063
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3321739177
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13280995963
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3139908687
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12487307367
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3118348062
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12532953366
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3115813650
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12444586867
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         321390017
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         773501107
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320064178
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         769258529
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320083391
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         768910054
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25073679842
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71107944863
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25439057568
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71243373342
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25033210683
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       70885468086
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       34217508564
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      307041982817
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       36163161174
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      332411809331
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       36101155489
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      324270335488
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1038792938774
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3562077541597
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1033910865225
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3524772173720
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1026960919046
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3548766800292
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45769906
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         132426254
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45389381
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         133333844
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44943256
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         133232025
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3365838808
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13443536089
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3358607663
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13518984504
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3366474111
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13494389619
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3481016502
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13296556478
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3151451854
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12901093809
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3156667974
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       14159937203
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         321711405
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         786717744
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         326557341
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         787237195
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         327106060
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         787078963
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25571288278
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       72910168804
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25535835787
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71902568994
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25433064323
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71409295682
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       34376641819
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      306972796080
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       34593831980
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      307508971645
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       34112447176
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      301620628390
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1028701517047
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3525259963160
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1027687707738
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3519606761616
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1028273472595
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3531277891483
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45270021
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         132056029
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44756206
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         131880600
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45832746
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         133260277
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3364922908
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13475167026
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3366549428
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13646766827
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3379819829
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13501206741
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3182717035
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13092533604
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3154591911
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12979937490
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3249989164
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13412580543
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         320354959
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         779778301
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         319685371
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         779036850
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         319849148
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         785130108
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25371883673
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71711064142
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25288795697
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71388143010
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25595218409
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71485860306
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33945282208
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      304401510025
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33826166451
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      300986881941
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       34029278526
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      300145881805
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1028235384905
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3522346741349
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1026056005506
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3518988398213
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1035609076756
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3523154734155
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          45881733
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         131552115
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44553431
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         188100665
+/home/zom/graphs/dblp-2010      	sux::bits::bit_vec::BitVec                                                                                              	          44551441
+/home/zom/graphs/dblp-2010      	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         131839354
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3364378588
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13262402045
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3345438915
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13382533685
+/home/zom/graphs/hollywood-2011 	sux::bits::bit_vec::BitVec                                                                                              	        3351576947
+/home/zom/graphs/hollywood-2011 	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       13225408894
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3116028826
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12778397307
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3112647731
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12415942351
+/home/zom/graphs/enwiki-2015    	sux::bits::bit_vec::BitVec                                                                                              	        3104930737
+/home/zom/graphs/enwiki-2015    	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       12532381883
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         318087747
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         770594634
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         317993908
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         768982685
+/home/zom/graphs/in-2004        	sux::bits::bit_vec::BitVec                                                                                              	         318273767
+/home/zom/graphs/in-2004        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	         766223042
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25152973347
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       71028884182
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25197425378
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       70808537844
+/home/zom/graphs/webbase-2001   	sux::bits::bit_vec::BitVec                                                                                              	       25157034400
+/home/zom/graphs/webbase-2001   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	       70856867341
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33628489104
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      295796247433
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33730738455
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      296226854225
+/home/zom/graphs/twitter-2010   	sux::bits::bit_vec::BitVec                                                                                              	       33666389279
+/home/zom/graphs/twitter-2010   	alloc::collections::btree::set::BTreeSet<usize>                                                                         	      296093405573
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1029466173336
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3520302352482
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1029491838301
+/home/zom/graphs/eu-2015        	alloc::collections::btree::set::BTreeSet<usize>                                                                         	     3533412729345
+/home/zom/graphs/eu-2015        	sux::bits::bit_vec::BitVec                                                                                              	     1027252213553
