@@ -11,6 +11,8 @@ mod adaptive_node_set;
 use adaptive_node_set::AdaptiveNodeSet;
 
 mod bloom;
+mod sparse_radix_set;
+use sparse_radix_set::SparseRadixSet32;
 
 use std::hash::{Hasher, BuildHasher, BuildHasherDefault, RandomState};
 
@@ -42,9 +44,8 @@ impl<H: Default + Hasher> BuildableHasher for BuildHasherDefault<H> {
     }
 }
 
-pub trait NodeSet  {
-    type Args;
-    fn new(args: Self::Args) -> Self;
+pub trait NodeSet {
+    fn new(num_nodes: usize) -> Self;
     fn insert(&mut self, key: usize);
     fn contains(&self, key: usize) -> bool;
 }
@@ -189,6 +190,8 @@ fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
             bench_all::<HashSet<usize, wyhash::WyHasherBuilder>>(&graph, graph_path, root, depth, false)?;
             bench_all::<rapidhash::RapidHashSet<usize>>(&graph, graph_path, root, depth, false)?;
             bench_all::<HashSet<usize, xxhash_rust::xxh3::Xxh3DefaultBuilder>>(&graph, graph_path, root, depth, false)?;
+            bench_all::<SparseRadixSet32<fxhash::FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            bench_all::<SparseRadixSet32<rapidhash::RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
             bench_all::<HashSet<usize>>(&graph, graph_path, root, depth, false)?;
             bench_all::<BTreeSet<usize>>(&graph, graph_path, root, depth, false)?;
             println!("");

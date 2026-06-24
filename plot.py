@@ -29,7 +29,14 @@ def parse_data_file(filepath):
             ds_full_name = parts[2]
             
             # Assign a more readable name to the data structure
-            if 'HashSet<usize>' in ds_full_name:
+            if 'SparseRadixSet32' in ds_full_name:
+                if 'FxHasher' in ds_full_name:
+                    ds_name = 'SparseRadixSet32 (FxHasher)'
+                elif 'RapidHasher' in ds_full_name:
+                    ds_name = 'SparseRadixSet32 (RapidHasher)'
+                else:
+                    ds_name = 'SparseRadixSet32'
+            elif 'HashSet<usize>' in ds_full_name:
                 ds_name = 'HashSet (Default)'
             elif 'FxHasher' in ds_full_name:
                 ds_name = 'HashSet (FxHasher)'
