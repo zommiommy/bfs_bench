@@ -36,6 +36,20 @@ def parse_data_file(filepath):
                     ds_name = 'SparseRadixSet32 (RapidHasher)'
                 else:
                     ds_name = 'SparseRadixSet32'
+            elif 'BlockBitset' in ds_full_name:
+                ds_name = 'BlockBitset'
+            elif 'SparseSet' in ds_full_name:
+                ds_name = 'SparseSet'
+            elif 'Bitmap64' in ds_full_name:
+                ds_name = 'croaring (Bitmap64)'
+            elif 'foldhash' in ds_full_name:
+                ds_name = 'HashSet (foldhash)'
+            elif 'rustc_hash' in ds_full_name:
+                ds_name = 'HashSet (rustc-hash)'
+            elif 'NoHashHasher' in ds_full_name:
+                ds_name = 'HashSet (nohash)'
+            elif 'gxhash' in ds_full_name:
+                ds_name = 'HashSet (gxhash)'
             elif 'HashSet<usize>' in ds_full_name:
                 ds_name = 'HashSet (Default)'
             elif 'FxHasher' in ds_full_name:

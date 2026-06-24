@@ -15,3 +15,11 @@ ahash = "0.8.11"
 wyhash = "0.6.0"
 rapidhash = "1.4.0"
 xxhash-rust = { version = "0.8.15", features = ["xxh3"] }
+foldhash = "0.2"
+rustc-hash = "2.1"
+nohash-hasher = "0.2"
+croaring = "2.6"
+gxhash = { version = "3.5", optional = true }
+
+[features]
+gxhash = ["dep:gxhash"]

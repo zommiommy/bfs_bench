@@ -13,6 +13,10 @@ use adaptive_node_set::AdaptiveNodeSet;
 mod bloom;
 mod sparse_radix_set;
 use sparse_radix_set::SparseRadixSet32;
+mod block_bitset;
+use block_bitset::BlockBitset;
+mod sparse_set;
+use sparse_set::SparseSet;
 
 use std::hash::{Hasher, BuildHasher, BuildHasherDefault, RandomState};
 
@@ -35,6 +39,25 @@ impl BuildableHasher for xxhash_rust::xxh3::Xxh3DefaultBuilder {
 impl BuildableHasher for wyhash::WyHasherBuilder {
     fn new() -> Self {
         wyhash::WyHasherBuilder::new(1337)
+    }
+}
+
+impl BuildableHasher for foldhash::fast::RandomState {
+    fn new() -> Self {
+        Self::default()
+    }
+}
+
+impl BuildableHasher for rustc_hash::FxBuildHasher {
+    fn new() -> Self {
+        Self::default()
+    }
+}
+
+#[cfg(feature = "gxhash")]
+impl BuildableHasher for gxhash::GxBuildHasher {
+    fn new() -> Self {
+        Self::default()
     }
 }
 
@@ -126,6 +149,21 @@ impl NodeSet for RoaringTreemap {
     }
 }
 
+impl NodeSet for croaring::Bitmap64 {
+    fn new(_num_nodes: usize) -> Self {
+        croaring::Bitmap64::new()
+    }
+
+    #[inline(always)]
+    fn insert(&mut self, node: usize) {
+        self.add(u64::try_from(node).unwrap());
+    }
+    #[inline(always)]
+    fn contains(&self, node: usize) -> bool {
+        croaring::Bitmap64::contains(self, u64::try_from(node).unwrap())
+    }
+}
+
 
 fn bench<N: NodeSet>(graph: impl RandomAccessGraph, graph_basename: &str, root: usize, max_depth: usize, warmup: bool) -> Result<()> {
     let name = core::any::type_name::<N>();
@@ -192,6 +230,18 @@ fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
             bench_all::<HashSet<usize, xxhash_rust::xxh3::Xxh3DefaultBuilder>>(&graph, graph_path, root, depth, false)?;
             bench_all::<SparseRadixSet32<fxhash::FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
             bench_all::<SparseRadixSet32<rapidhash::RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            bench_all::<BlockBitset>(&graph, graph_path, root, depth, false)?;
+            bench_all::<croaring::Bitmap64>(&graph, graph_path, root, depth, false)?;
+            bench_all::<HashSet<usize, foldhash::fast::RandomState>>(&graph, graph_path, root, depth, false)?;
+            bench_all::<HashSet<usize, rustc_hash::FxBuildHasher>>(&graph, graph_path, root, depth, false)?;
+            bench_all::<HashSet<usize, nohash_hasher::BuildNoHashHasher<usize>>>(&graph, graph_path, root, depth, false)?;
+            #[cfg(feature = "gxhash")]
+            bench_all::<HashSet<usize, gxhash::GxBuildHasher>>(&graph, graph_path, root, depth, false)?;
+            // SparseSet eagerly allocates ~16 bytes per node in the universe in
+            // new(), so only run it where that comfortably fits in RAM.
+            if graph.num_nodes() <= 3_000_000_000 {
+                bench_all::<SparseSet>(&graph, graph_path, root, depth, false)?;
+            }
             bench_all::<HashSet<usize>>(&graph, graph_path, root, depth, false)?;
             bench_all::<BTreeSet<usize>>(&graph, graph_path, root, depth, false)?;
             println!("");
@@ -202,29 +252,51 @@ fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
 }
 
 fn main() {
+    let oneshot = std::env::var_os("BFS_BENCH_ONESHOT").is_some();
+    let custom_graphs = std::env::var("BFS_BENCH_GRAPHS").ok();
     loop {
-        for graph_path in [
-            "/dfd/graphs/dblp-2010",
-            "/dfd/graphs/hollywood-2011",
-            "/dfd/graphs/enwiki-2015",
-            "/dfd/graphs/in-2004",
-            "/dfd/graphs/webbase-2001",
-            "/dfd/graphs/twitter-2010",
-            "/dfd/graphs/eu-2015",
-        ] {
-            let graph = BvGraph::with_basename(graph_path)
-                .mode::<LoadMmap>()
-                .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
-                .load().unwrap();
-            all(graph, graph_path).unwrap();
-        }
+        match &custom_graphs {
+            // Override list (comma-separated full paths) for bounded/subset
+            // runs. Each is loaded with LoadMmap (into RAM), so use only graphs
+            // that fit in memory; the huge mmap-only graph is handled solely by
+            // the default schedule in the None branch below.
+            Some(list) => {
+                for graph_path in list.split(',').filter(|s| !s.is_empty()) {
+                    let graph = BvGraph::with_basename(graph_path)
+                        .mode::<LoadMmap>()
+                        .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
+                        .load().unwrap();
+                    all(graph, graph_path).unwrap();
+                }
+            }
+            None => {
+                for graph_path in [
+                    "/dfd/graphs/dblp-2010",
+                    "/dfd/graphs/hollywood-2011",
+                    "/dfd/graphs/enwiki-2015",
+                    "/dfd/graphs/in-2004",
+                    "/dfd/graphs/webbase-2001",
+                    "/dfd/graphs/twitter-2010",
+                    "/dfd/graphs/eu-2015",
+                ] {
+                    let graph = BvGraph::with_basename(graph_path)
+                        .mode::<LoadMmap>()
+                        .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
+                        .load().unwrap();
+                    all(graph, graph_path).unwrap();
+                }
 
-        // This one is too big to load into memory, so we use Mmap mode
-        let graph_path =  "/dfd/graphs/2024-12-06/graph";
-        let graph = BvGraph::with_basename(graph_path)
-            .mode::<Mmap>()
-            .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
-            .load().unwrap();
-        all(graph, graph_path).unwrap();
+                // This one is too big to load into memory, so we use Mmap mode
+                let graph_path = "/dfd/graphs/2024-12-06/graph";
+                let graph = BvGraph::with_basename(graph_path)
+                    .mode::<Mmap>()
+                    .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
+                    .load().unwrap();
+                all(graph, graph_path).unwrap();
+            }
+        }
+        if oneshot {
+            break;
+        }
     }
 }
