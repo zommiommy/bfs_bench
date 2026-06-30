@@ -25,16 +25,15 @@ const PROMOTION_THRESHOLD: usize = 64;
 /// This has the advantage of allocating little memory if there won't be many elements,
 /// but avoiding the overhead of [`HashSet`] when there are.
 ///
-/// ```
-/// # use swh_graph::collections::{AdaptiveNodeSet, NodeSet};
+/// The representation switches from sparse to dense as items accumulate:
+///
+/// ```text
 /// let mut node_set = AdaptiveNodeSet::new(100);
-/// assert_eq!(format!("{:?}", node_set), "Sparse { max_items: 100, data: {} }");
+/// // Sparse { max_items: 100, data: {} }
 /// node_set.insert(10);
-/// assert_eq!(format!("{:?}", node_set), "Sparse { max_items: 100, data: {10} }");
-/// for i in 20..30 {
-///     node_set.insert(i);
-/// }
-/// assert_eq!(format!("{:?}", node_set), "Dense { data: BitVec { bits: [1072694272, 0], len: 100 } }");
+/// // Sparse { max_items: 100, data: {10} }
+/// for i in 20..30 { node_set.insert(i); }
+/// // Dense { data: BitVec { bits: [1072694272, 0], len: 100 } }
 /// ```
 #[derive(Debug)]
 pub enum AdaptiveNodeSet {
@@ -54,21 +53,6 @@ impl AdaptiveNodeSet {
         AdaptiveNodeSet::Sparse {
             max_items,
             data: HashSet::new(),
-        }
-    }
-
-    /// Creates an empty `AdaptiveNodeSet` with at least the specified capacity
-    #[inline(always)]
-    pub fn with_capacity(max_items: usize, capacity: usize) -> Self {
-        if capacity > max_items / PROMOTION_THRESHOLD {
-            AdaptiveNodeSet::Dense {
-                data: BitVec::new(max_items),
-            }
-        } else {
-            AdaptiveNodeSet::Sparse {
-                max_items,
-                data: HashSet::new(),
-            }
         }
     }
 }

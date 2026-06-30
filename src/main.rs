@@ -1,7 +1,7 @@
 #![deny(unconditional_recursion)]
 use std::time::Instant;
 use std::collections::{BTreeSet, HashSet, VecDeque};
-use anyhow::Result;
+use anyhow::{Context, Result};
 use fxhash::FxBuildHasher;
 use webgraph::prelude::*;
 use sux::prelude::*;
@@ -10,7 +10,6 @@ use roaring::RoaringTreemap;
 mod adaptive_node_set;
 use adaptive_node_set::AdaptiveNodeSet;
 
-mod bloom;
 mod sparse_radix_set;
 use sparse_radix_set::SparseRadixSet32;
 mod block_bitset;
@@ -50,7 +49,7 @@ impl BuildableHasher for foldhash::fast::RandomState {
 
 impl BuildableHasher for rustc_hash::FxBuildHasher {
     fn new() -> Self {
-        Self::default()
+        Self
     }
 }
 
@@ -197,106 +196,113 @@ fn bench<N: NodeSet>(graph: impl RandomAccessGraph, graph_basename: &str, root: 
 }
 
 
-fn bench_all<N: NodeSet>(graph: impl RandomAccessGraph, graph_path: &str, root: usize, max_depth: usize, warmup: bool) -> Result<()> {
-    bench::<N>(&graph, graph_path, root, max_depth, warmup)?;
-    //bench::<Bloom<N, FxBuildHasher>>(graph_path, root)?;
-    //bench::<Bloom<N, BuildHasherDefault<ahash::AHasher>>>(graph_path, root)?;
-    //bench::<Bloom<N>>(graph_path, root)?;
-    Ok(())
-}
-
+/// Runs every [`NodeSet`] implementation over a fixed sweep of BFS depths and
+/// root nodes on `graph`, printing one timing line per (depth, root, set).
 fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
     for depth in [1, 2, 3, 4, 5, usize::MAX] {
-        for root in [
-            1337,
-            420,
-            69,
-            666,
-        ] {
+        for root in [1337, 420, 69, 666] {
+            // Roots are fixed across graphs; skip any that fall outside this
+            // graph so smaller graphs don't panic in successors()/insert().
+            if root >= graph.num_nodes() {
+                eprintln!("skipping root {root} on {graph_path}: only {} nodes", graph.num_nodes());
+                continue;
+            }
 
             eprintln!("\n\nGraph: {}, Root: {}, Depth: {}\n", graph_path, root, depth);
 
-            // warmup runs
-            bench_all::<AdaptiveNodeSet>(&graph, graph_path, root, depth, true)?;
+            // Warm up caches/branch predictors with one untimed run.
+            bench::<AdaptiveNodeSet>(&graph, graph_path, root, depth, true)?;
 
-            bench_all::<BitVec>(&graph, graph_path, root, depth, false)?;
-            bench_all::<Vec<bool>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<AdaptiveNodeSet>(&graph, graph_path, root, depth, false)?;
-            bench_all::<RoaringTreemap>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, BuildHasherDefault<ahash::AHasher>>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, FxBuildHasher>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, wyhash::WyHasherBuilder>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<rapidhash::RapidHashSet<usize>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, xxhash_rust::xxh3::Xxh3DefaultBuilder>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<SparseRadixSet32<fxhash::FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<SparseRadixSet32<rapidhash::RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<BlockBitset>(&graph, graph_path, root, depth, false)?;
-            bench_all::<croaring::Bitmap64>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, foldhash::fast::RandomState>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, rustc_hash::FxBuildHasher>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<HashSet<usize, nohash_hasher::BuildNoHashHasher<usize>>>(&graph, graph_path, root, depth, false)?;
+            bench::<BitVec>(&graph, graph_path, root, depth, false)?;
+            bench::<Vec<bool>>(&graph, graph_path, root, depth, false)?;
+            bench::<AdaptiveNodeSet>(&graph, graph_path, root, depth, false)?;
+            bench::<RoaringTreemap>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, BuildHasherDefault<ahash::AHasher>>>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, FxBuildHasher>>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, wyhash::WyHasherBuilder>>(&graph, graph_path, root, depth, false)?;
+            bench::<rapidhash::RapidHashSet<usize>>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, xxhash_rust::xxh3::Xxh3DefaultBuilder>>(&graph, graph_path, root, depth, false)?;
+            bench::<SparseRadixSet32<fxhash::FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            bench::<SparseRadixSet32<rapidhash::RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            bench::<BlockBitset>(&graph, graph_path, root, depth, false)?;
+            bench::<croaring::Bitmap64>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, foldhash::fast::RandomState>>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, rustc_hash::FxBuildHasher>>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, nohash_hasher::BuildNoHashHasher<usize>>>(&graph, graph_path, root, depth, false)?;
             #[cfg(feature = "gxhash")]
-            bench_all::<HashSet<usize, gxhash::GxBuildHasher>>(&graph, graph_path, root, depth, false)?;
+            bench::<HashSet<usize, gxhash::GxBuildHasher>>(&graph, graph_path, root, depth, false)?;
             // SparseSet eagerly allocates ~16 bytes per node in the universe in
             // new(), so only run it where that comfortably fits in RAM.
             if graph.num_nodes() <= 3_000_000_000 {
-                bench_all::<SparseSet>(&graph, graph_path, root, depth, false)?;
+                bench::<SparseSet>(&graph, graph_path, root, depth, false)?;
             }
-            bench_all::<HashSet<usize>>(&graph, graph_path, root, depth, false)?;
-            bench_all::<BTreeSet<usize>>(&graph, graph_path, root, depth, false)?;
-            println!("");
+            bench::<HashSet<usize>>(&graph, graph_path, root, depth, false)?;
+            bench::<BTreeSet<usize>>(&graph, graph_path, root, depth, false)?;
+            println!();
         }
     }
 
     Ok(())
 }
 
-fn main() {
-    let oneshot = std::env::var_os("BFS_BENCH_ONESHOT").is_some();
-    let custom_graphs = std::env::var("BFS_BENCH_GRAPHS").ok();
-    loop {
-        match &custom_graphs {
-            // Override list (comma-separated full paths) for bounded/subset
-            // runs. Each is loaded with LoadMmap (into RAM), so use only graphs
-            // that fit in memory; the huge mmap-only graph is handled solely by
-            // the default schedule in the None branch below.
-            Some(list) => {
-                for graph_path in list.split(',').filter(|s| !s.is_empty()) {
-                    let graph = BvGraph::with_basename(graph_path)
-                        .mode::<LoadMmap>()
-                        .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
-                        .load().unwrap();
-                    all(graph, graph_path).unwrap();
-                }
+fn main() -> Result<()> {
+    let mut mmap = false;
+    let mut basenames = Vec::new();
+    for arg in std::env::args().skip(1) {
+        match arg.as_str() {
+            "-h" | "--help" => {
+                usage();
+                return Ok(());
             }
-            None => {
-                for graph_path in [
-                    "/dfd/graphs/dblp-2010",
-                    "/dfd/graphs/hollywood-2011",
-                    "/dfd/graphs/enwiki-2015",
-                    "/dfd/graphs/in-2004",
-                    "/dfd/graphs/webbase-2001",
-                    "/dfd/graphs/twitter-2010",
-                    "/dfd/graphs/eu-2015",
-                ] {
-                    let graph = BvGraph::with_basename(graph_path)
-                        .mode::<LoadMmap>()
-                        .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
-                        .load().unwrap();
-                    all(graph, graph_path).unwrap();
-                }
-
-                // This one is too big to load into memory, so we use Mmap mode
-                let graph_path = "/dfd/graphs/2024-12-06/graph";
-                let graph = BvGraph::with_basename(graph_path)
-                    .mode::<Mmap>()
-                    .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS)
-                    .load().unwrap();
-                all(graph, graph_path).unwrap();
+            // Memory-map the graph from disk instead of loading it into RAM.
+            // Use for graphs that do not fit in memory; otherwise the default
+            // (load into RAM) gives cleaner timings free of page-fault noise.
+            "-m" | "--mmap" => mmap = true,
+            unknown if unknown.starts_with('-') => {
+                eprintln!("error: unknown option '{unknown}'\n");
+                usage();
+                std::process::exit(2);
             }
-        }
-        if oneshot {
-            break;
+            _ => basenames.push(arg),
         }
     }
+
+    if basenames.is_empty() {
+        usage();
+        std::process::exit(2);
+    }
+
+    for basename in &basenames {
+        let loader = BvGraph::with_basename(basename)
+            .flags(MemoryFlags::TRANSPARENT_HUGE_PAGES | MemoryFlags::RANDOM_ACCESS);
+        if mmap {
+            let graph = loader.mode::<Mmap>().load()
+                .with_context(|| format!("loading {basename} (mmap)"))?;
+            all(graph, basename)?;
+        } else {
+            let graph = loader.mode::<LoadMmap>().load()
+                .with_context(|| format!("loading {basename}"))?;
+            all(graph, basename)?;
+        }
+    }
+
+    Ok(())
+}
+
+fn usage() {
+    eprintln!(
+        "Usage: bfs_bench [--mmap] <graph-basename>...\n\
+         \n\
+         Benchmarks BFS visited-set data structures over each graph, in order.\n\
+         A graph basename is the path without the .graph/.properties extension,\n\
+         e.g. /data/graphs/dblp-2010 for dblp-2010.graph.\n\
+         \n\
+         Options:\n\
+         \x20 -m, --mmap   Memory-map graphs from disk instead of loading into RAM\n\
+         \x20             (use for graphs too large to fit in memory).\n\
+         \x20 -h, --help   Show this help.\n\
+         \n\
+         Results are printed to stdout as tab-separated rows:\n\
+         \x20 <max_depth> <graph-basename> <data-structure> <nanoseconds>"
+    );
 }
