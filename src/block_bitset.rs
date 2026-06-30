@@ -1,32 +1,49 @@
 use crate::NodeSet;
 
-/// Number of node ids covered by one block: 65536 ids => one 8 KiB block of
-/// 1024 `u64` words. This matches Roaring's chunk size so a touched block stays
-/// in L1/L2 and the top-level directory stays cache-resident.
-const BLOCK_BITS: usize = 1 << 16;
-const WORDS: usize = BLOCK_BITS / 64;
+/// Bits in one `usize` word: 64 on a 64-bit target, 32 on a 32-bit target.
+///
+/// The block words are `usize` rather than a fixed `u64` so the per-word bit
+/// math runs at the target's native width; on a 32-bit target `usize` avoids
+/// the emulated 64-bit operations a `u64` bitset would incur.
+const BITS_PER_WORD: usize = core::mem::size_of::<usize>() * 8;
 
 /// Two-level lazily-allocated dense bitset ("block bitmap" / uncompressed Roaring).
 ///
 /// A directory of optional fixed-size dense blocks; a block is allocated only on
-/// first write. Construction touches just the directory (one pointer per 65536
-/// ids, ~4 MB at 34e9), so it is cheap for the many tiny BFSs; resident memory
-/// grows with the number of distinct blocks touched; and for a whole-graph BFS it
-/// converges to a plain bitset (~`num_nodes` bits) with **no promotion copy**
-/// (unlike [`crate::AdaptiveNodeSet`]) and **no per-element container dispatch**
-/// (unlike `RoaringTreemap`).
+/// first write. Construction touches just the directory (one pointer per block),
+/// so it is cheap for the many tiny BFSs; resident memory grows with the number
+/// of distinct blocks touched; and for a whole-graph BFS it converges to a plain
+/// bitset (~`num_nodes` bits) with **no promotion copy** (unlike
+/// [`crate::AdaptiveNodeSet`]) and **no per-element container dispatch** (unlike
+/// `RoaringTreemap`).
+///
+/// `WORDS` is the number of `usize` words per block, so a block covers
+/// `BLOCK_BITS = WORDS * BITS_PER_WORD` node ids. The default (`WORDS = 1024`)
+/// covers 65536 ids per block on a 64-bit target, matching Roaring's chunk size
+/// so a touched block stays in L1/L2 and the top-level directory stays
+/// cache-resident.
 ///
 /// Derived from the Roaring bitmap split / cache-sizing rules (Chambi, Lemire,
 /// Kaser, Godin, "Better bitmap performance with Roaring bitmaps", SPE 2016,
 /// <https://arxiv.org/pdf/1402.6407>) restricted to bitmap containers with lazy
 /// allocation.
-pub struct BlockBitset {
-    dir: Box<[Option<Box<[u64; WORDS]>>]>,
+pub struct BlockBitset<const WORDS: usize = 1024> {
+    dir: Box<[Option<Box<[usize; WORDS]>>]>,
 }
 
-impl NodeSet for BlockBitset {
+impl<const WORDS: usize> BlockBitset<WORDS> {
+    /// Number of node ids covered by one block.
+    const BLOCK_BITS: usize = WORDS * BITS_PER_WORD;
+
+    /// Forces a compile-time error for the degenerate `WORDS == 0` block size,
+    /// which would otherwise make `BLOCK_BITS == 0` and divide by zero in `new`.
+    const ASSERT_WORDS_NONZERO: () = assert!(WORDS > 0, "BlockBitset requires WORDS > 0");
+}
+
+impl<const WORDS: usize> NodeSet for BlockBitset<WORDS> {
     fn new(num_nodes: usize) -> Self {
-        let blocks = num_nodes.div_ceil(BLOCK_BITS).max(1);
+        const { Self::ASSERT_WORDS_NONZERO };
+        let blocks = num_nodes.div_ceil(Self::BLOCK_BITS).max(1);
         Self {
             dir: (0..blocks).map(|_| None).collect(),
         }
@@ -34,14 +51,14 @@ impl NodeSet for BlockBitset {
 
     #[inline(always)]
     fn insert(&mut self, node: usize) {
-        let block = self.dir[node / BLOCK_BITS].get_or_insert_with(|| Box::new([0u64; WORDS]));
-        block[(node % BLOCK_BITS) / 64] |= 1u64 << (node % 64);
+        let block = self.dir[node / Self::BLOCK_BITS].get_or_insert_with(|| Box::new([0usize; WORDS]));
+        block[(node % Self::BLOCK_BITS) / BITS_PER_WORD] |= 1usize << (node % BITS_PER_WORD);
     }
 
     #[inline(always)]
     fn contains(&self, node: usize) -> bool {
-        match &self.dir[node / BLOCK_BITS] {
-            Some(block) => block[(node % BLOCK_BITS) / 64] & (1u64 << (node % 64)) != 0,
+        match &self.dir[node / Self::BLOCK_BITS] {
+            Some(block) => block[(node % Self::BLOCK_BITS) / BITS_PER_WORD] & (1usize << (node % BITS_PER_WORD)) != 0,
             None => false,
         }
     }
@@ -54,7 +71,7 @@ mod tests {
 
     #[test]
     fn matches_reference_within_one_block() {
-        let mut set = BlockBitset::new(1_000);
+        let mut set: BlockBitset = BlockBitset::new(1_000);
         let mut reference = HashSet::new();
         for &v in &[0usize, 1, 63, 64, 65, 999] {
             set.insert(v);
@@ -69,7 +86,7 @@ mod tests {
     fn spans_blocks_and_unallocated_directory() {
         // 300k ids => 5 blocks of 65536 ids each (directory indices 0..=4).
         let n = 300_000usize;
-        let mut set = BlockBitset::new(n);
+        let mut set: BlockBitset = BlockBitset::new(n);
         // Touch only blocks 0 and 2, leaving blocks 1, 3, 4 unallocated.
         let present = [0usize, 65_535, 131_072, 196_607];
         for &v in &present {
@@ -89,10 +106,29 @@ mod tests {
 
     #[test]
     fn idempotent_insert() {
-        let mut set = BlockBitset::new(128);
+        let mut set: BlockBitset = BlockBitset::new(128);
         set.insert(42);
         set.insert(42);
         assert!(set.contains(42));
         assert!(!set.contains(43));
+    }
+
+    #[test]
+    fn custom_words_derives_block_size() {
+        // WORDS = 2 => BLOCK_BITS = 2 * BITS_PER_WORD, so block boundaries fall
+        // at multiples of 2*BITS_PER_WORD regardless of target word width.
+        const W: usize = 2;
+        let block_bits = W * BITS_PER_WORD;
+        let mut set: BlockBitset<W> = BlockBitset::new(3 * block_bits);
+        // One id in each of blocks 0, 1, 2, plus a second-word id within block 0.
+        let present = [0usize, BITS_PER_WORD, block_bits, 2 * block_bits];
+        for &v in &present {
+            set.insert(v);
+        }
+        for &v in &present {
+            assert!(set.contains(v), "missing {v}");
+        }
+        assert!(!set.contains(1));
+        assert!(!set.contains(block_bits + 1));
     }
 }
