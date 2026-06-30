@@ -2,6 +2,8 @@ use std::collections::HashSet;
 use std::hash::{BuildHasher, Hash};
 
 use crate::NodeSet;
+#[cfg(target_pointer_width = "64")]
+use crate::adaptive_node_set::AdaptiveNodeSet;
 
 /// A bucket able to store the low 32 bits of node ids for [`SparseRadixSet32`].
 ///
@@ -26,6 +28,45 @@ impl<T: Hash + Eq, H: BuildHasher + Default> Bucket<T> for HashSet<T, H> {
     #[inline(always)]
     fn contains(&self, val: T) -> bool {
         HashSet::contains(self, &val)
+    }
+}
+
+/// [`Bucket`] backed by an [`AdaptiveNodeSet`] instead of a plain hash set.
+///
+/// Each bucket owns the full low-32-bit sub-universe, so its `AdaptiveNodeSet`
+/// is created with `max_items = 2^32` and promotes from a sparse hash set to a
+/// dense `BitVec` independently of the other buckets. Pairing the radix split
+/// with an adaptive bucket caps a densified bucket at one `2^32`-bit vector
+/// (512 MiB) while keeping the cheap sparse representation for buckets that stay
+/// small — useful on graphs whose ids exceed `2^32` (the radix index is then
+/// non-trivial) and where a single global `AdaptiveNodeSet` would size its dense
+/// vector to the whole universe.
+///
+/// Restricted to 64-bit targets: the `2^32` sub-universe does not fit in a
+/// 32-bit `usize` (neither `max_items` nor the promoted `BitVec` length), so on
+/// a 32-bit target the generic `HashSet`-backed buckets must be used instead.
+#[cfg(target_pointer_width = "64")]
+pub struct AdaptiveBucket(AdaptiveNodeSet);
+
+/// Number of distinct low-32-bit values one bucket can hold.
+#[cfg(target_pointer_width = "64")]
+const BUCKET_UNIVERSE: usize = 1 << 32;
+
+#[cfg(target_pointer_width = "64")]
+impl Bucket<u32> for AdaptiveBucket {
+    #[inline(always)]
+    fn new() -> Self {
+        AdaptiveBucket(AdaptiveNodeSet::new(BUCKET_UNIVERSE))
+    }
+    #[inline(always)]
+    fn insert(&mut self, val: u32) -> bool {
+        // u32 always fits in usize on the >=32-bit targets this runs on.
+        self.0.insert_new(usize::try_from(val).unwrap())
+    }
+    #[inline(always)]
+    fn contains(&self, val: u32) -> bool {
+        // u32 always fits in usize on the >=32-bit targets this runs on.
+        crate::NodeSet::contains(&self.0, usize::try_from(val).unwrap())
     }
 }
 
@@ -176,5 +217,41 @@ mod tests {
         // Only one bucket (high == 0); querying a high bucket must not panic.
         let set = SparseRadixSet32::<FxBucket>::new(10);
         assert!(!set.contains((1usize << 32) + 3));
+    }
+
+    #[cfg(target_pointer_width = "64")]
+    #[test]
+    fn adaptive_bucket_matches_reference() {
+        let mut set = SparseRadixSet32::<AdaptiveBucket>::new(1_000);
+        let mut reference = HashSet::new();
+        for &v in &[0usize, 1, 7, 42, 999] {
+            assert_eq!(set.insert(v), reference.insert(v), "bool mismatch at {v}");
+        }
+        for v in 0usize..1_000 {
+            assert_eq!(set.contains(v), reference.contains(&v), "mismatch at {v}");
+        }
+        // Re-inserting an existing value reports "already present".
+        assert!(!set.insert(42));
+    }
+
+    #[cfg(target_pointer_width = "64")]
+    #[test]
+    fn adaptive_bucket_spans_multiple_buckets_above_u32() {
+        // num_values past 2^32 forces a second bucket (high == 1); the two
+        // AdaptiveNodeSet buckets must not alias on identical low bits.
+        let max = (1usize << 32) + 10;
+        let mut set = SparseRadixSet32::<AdaptiveBucket>::new(max);
+
+        let base = 5usize; // bucket 0, low bits = 5
+        let crossed = (1usize << 32) + 5; // bucket 1, identical low bits
+
+        assert!(set.insert(base));
+        assert!(set.contains(base));
+        assert!(!set.contains(crossed));
+
+        assert!(set.insert(crossed));
+        assert!(set.contains(crossed));
+        assert!(set.contains(base));
+        assert!(!set.contains((1usize << 32) + 6));
     }
 }

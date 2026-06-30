@@ -26,6 +26,7 @@ implementation (a warm-up run precedes each batch). The implementations:
 | `RoaringTreemap` (`roaring`) | Compressed bitmap. |
 | `croaring::Bitmap64` (`croaring`) | Compressed bitmap (CRoaring bindings). |
 | `SparseRadixSet32<H>` | Splits ids into a 32-bit bucket index + 32-bit stored low part; with `FxHasher` and `RapidHasher`. |
+| `SparseRadixSet32<AdaptiveBucket>` | Same radix split, but each bucket is an `AdaptiveNodeSet` (sparse `HashSet`, promoting to a dense `BitVec` over its `2^32` sub-universe), so dense regions are capped per bucket. |
 | `HashSet<usize, H>` | `std` hash set across many hashers: default, ahash, fxhash, wyhash, rapidhash, xxh3, foldhash, rustc-hash, nohash, and (optionally) gxhash. |
 | `BTreeSet<usize>` | Ordered-tree baseline. |
 

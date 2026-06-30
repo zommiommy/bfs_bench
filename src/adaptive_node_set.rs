@@ -55,6 +55,35 @@ impl AdaptiveNodeSet {
             data: HashSet::new(),
         }
     }
+
+    /// Like [`NodeSet::insert`], but returns whether `node` was newly inserted
+    /// (`true`) or already present (`false`), matching [`HashSet::insert`].
+    ///
+    /// Used by the `AdaptiveBucket` wrapper so [`crate::sparse_radix_set::SparseRadixSet32`]
+    /// can honour its `Bucket::insert` contract without an extra membership probe.
+    /// The promotion logic is kept identical to [`NodeSet::insert`].
+    #[inline(always)]
+    pub fn insert_new(&mut self, node: usize) -> bool {
+        match self {
+            AdaptiveNodeSet::Sparse { max_items, data } => {
+                let inserted = data.insert(node);
+                if data.len() > *max_items / PROMOTION_THRESHOLD {
+                    // Promote the hashset to a bitvec
+                    let mut new_data = BitVec::new(*max_items);
+                    for node in data.iter() {
+                        new_data.insert(*node);
+                    }
+                    *self = AdaptiveNodeSet::Dense { data: new_data };
+                }
+                inserted
+            }
+            AdaptiveNodeSet::Dense { data } => {
+                let present = data.contains(node);
+                data.insert(node);
+                !present
+            }
+        }
+    }
 }
 
 impl NodeSet for AdaptiveNodeSet {
@@ -95,6 +124,52 @@ impl NodeSet for AdaptiveNodeSet {
         match self {
             AdaptiveNodeSet::Sparse { max_items: _, data } => data.contains(&node),
             AdaptiveNodeSet::Dense { data } => data.contains(node),
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn insert_new_reports_membership_across_promotion() {
+        // max_items / PROMOTION_THRESHOLD == 128 / 64 == 2, so the set promotes
+        // to Dense once it holds more than 2 elements (on the 3rd distinct one).
+        let mut set = AdaptiveNodeSet::new(128);
+        assert!(matches!(set, AdaptiveNodeSet::Sparse { .. }));
+
+        // Sparse path: new vs. duplicate.
+        assert!(set.insert_new(10));
+        assert!(!set.insert_new(10));
+        assert!(set.insert_new(20));
+        assert!(matches!(set, AdaptiveNodeSet::Sparse { .. }));
+
+        // 3rd distinct element triggers promotion to Dense.
+        assert!(set.insert_new(30));
+        assert!(matches!(set, AdaptiveNodeSet::Dense { .. }));
+
+        // Dense path: duplicate then new.
+        assert!(!set.insert_new(30));
+        assert!(set.insert_new(40));
+
+        for &v in &[10usize, 20, 30, 40] {
+            assert!(set.contains(v), "missing {v}");
+        }
+        for v in (0usize..128).filter(|v| ![10, 20, 30, 40].contains(v)) {
+            assert!(!set.contains(v), "unexpected {v}");
+        }
+    }
+
+    #[test]
+    fn insert_new_matches_reference() {
+        let mut set = AdaptiveNodeSet::new(1_000);
+        let mut reference = HashSet::new();
+        for &v in &[0usize, 1, 7, 7, 42, 42, 500, 999] {
+            assert_eq!(set.insert_new(v), reference.insert(v), "mismatch inserting {v}");
+        }
+        for v in 0usize..1_000 {
+            assert_eq!(set.contains(v), reference.contains(&v), "mismatch at {v}");
         }
     }
 }

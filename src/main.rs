@@ -12,6 +12,8 @@ use adaptive_node_set::AdaptiveNodeSet;
 
 mod sparse_radix_set;
 use sparse_radix_set::SparseRadixSet32;
+#[cfg(target_pointer_width = "64")]
+use sparse_radix_set::AdaptiveBucket;
 mod block_bitset;
 use block_bitset::BlockBitset;
 mod sparse_set;
@@ -224,6 +226,8 @@ fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
             bench::<HashSet<usize, xxhash_rust::xxh3::Xxh3DefaultBuilder>>(&graph, graph_path, root, depth, false)?;
             bench::<SparseRadixSet32<fxhash::FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
             bench::<SparseRadixSet32<rapidhash::RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            #[cfg(target_pointer_width = "64")]
+            bench::<SparseRadixSet32<AdaptiveBucket>>(&graph, graph_path, root, depth, false)?;
             bench::<BlockBitset>(&graph, graph_path, root, depth, false)?;
             bench::<croaring::Bitmap64>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, foldhash::fast::RandomState>>(&graph, graph_path, root, depth, false)?;
