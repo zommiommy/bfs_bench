@@ -17,6 +17,7 @@ foldhash = "0.2"
 rustc-hash = "2.1"
 nohash-hasher = "0.2"
 croaring = "2.6"
+libc = "0.2"
 gxhash = { version = "3.5", optional = true }
 
 [features]

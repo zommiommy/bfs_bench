@@ -16,6 +16,8 @@ use sparse_radix_set::SparseRadixSet32;
 use sparse_radix_set::AdaptiveBucket;
 mod block_bitset;
 use block_bitset::BlockBitset;
+mod mmap_bitset;
+use mmap_bitset::MmapBitset;
 mod sparse_set;
 use sparse_set::SparseSet;
 
@@ -229,6 +231,7 @@ fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
             #[cfg(target_pointer_width = "64")]
             bench::<SparseRadixSet32<AdaptiveBucket>>(&graph, graph_path, root, depth, false)?;
             bench::<BlockBitset>(&graph, graph_path, root, depth, false)?;
+            bench::<MmapBitset>(&graph, graph_path, root, depth, false)?;
             bench::<croaring::Bitmap64>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, foldhash::fast::RandomState>>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, rustc_hash::FxBuildHasher>>(&graph, graph_path, root, depth, false)?;

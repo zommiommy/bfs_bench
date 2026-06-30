@@ -165,6 +165,7 @@ dependencies = [
  "foldhash",
  "fxhash",
  "gxhash",
+ "libc",
  "nohash-hasher",
  "rapidhash",
  "roaring",

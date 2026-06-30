@@ -22,6 +22,7 @@ implementation (a warm-up run precedes each batch). The implementations:
 | `BitVec` (`sux`) | One bit per node in the universe. |
 | `AdaptiveNodeSet` | Starts as a `HashSet`, promotes to a dense `BitVec` once it gets dense. |
 | `BlockBitset` | Two-level, lazily-allocated dense bitset (uncompressed Roaring). |
+| `MmapBitset` | Flat one-bit-per-node bitset over a single anonymous `mmap`, relying on the kernel's demand paging instead of a userspace directory; same lazy-allocation idea as `BlockBitset` but at hardware page granularity. |
 | `SparseSet` | Briggs-Torczon sparse set; universe-sized, only run when it fits in RAM. |
 | `RoaringTreemap` (`roaring`) | Compressed bitmap. |
 | `croaring::Bitmap64` (`croaring`) | Compressed bitmap (CRoaring bindings). |
