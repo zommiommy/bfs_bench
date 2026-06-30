@@ -50,6 +50,11 @@ impl<const WORDS: usize> NodeSet for BlockBitset<WORDS> {
     }
 
     #[inline(always)]
+    fn len(&self) -> usize {
+        unimplemented!("BlockSet::len would be too slow");
+    }
+
+    #[inline(always)]
     fn insert(&mut self, node: usize) {
         let block = self.dir[node / Self::BLOCK_BITS].get_or_insert_with(|| Box::new([0usize; WORDS]));
         block[(node % Self::BLOCK_BITS) / BITS_PER_WORD] |= 1usize << (node % BITS_PER_WORD);

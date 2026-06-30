@@ -1,7 +1,9 @@
 use std::collections::HashSet;
 use std::hash::{BuildHasher, Hash};
 
-use crate::NodeSet;
+use crate::{IterableNodeSet, NodeSet};
+
+const SHIFT_BITS: u32 = 32;
 
 /// A bucket able to store the low 32 bits of node ids for [`SparseRadixSet32`].
 ///
@@ -10,14 +12,20 @@ use crate::NodeSet;
 /// `RapidHashSet<u32>`).
 pub trait Bucket<T> {
     fn new() -> Self;
+    fn len(&self) -> usize;
     fn insert(&mut self, val: T) -> bool;
     fn contains(&self, val: T) -> bool;
+    fn iter(&self) -> impl Iterator<Item=T>;
 }
 
-impl<T: Hash + Eq, H: BuildHasher + Default> Bucket<T> for HashSet<T, H> {
+impl<T: Hash + Eq + Copy, H: BuildHasher + Default> Bucket<T> for HashSet<T, H> {
     #[inline(always)]
     fn new() -> Self {
         Default::default()
+    }
+    #[inline(always)]
+    fn len(&self) -> usize {
+        HashSet::len(self)
     }
     #[inline(always)]
     fn insert(&mut self, val: T) -> bool {
@@ -26,6 +34,10 @@ impl<T: Hash + Eq, H: BuildHasher + Default> Bucket<T> for HashSet<T, H> {
     #[inline(always)]
     fn contains(&self, val: T) -> bool {
         HashSet::contains(self, &val)
+    }
+    #[inline(always)]
+    fn iter(&self) -> impl Iterator<Item=T> {
+        HashSet::iter(self).copied()
     }
 }
 
@@ -57,7 +69,6 @@ impl<B: Bucket<u32>> SparseRadixSet32<B> {
     fn split_value(val: usize) -> (u32, u32) {
         // usize fits in u64 on all supported targets, so this is infallible.
         let val = u64::try_from(val).unwrap();
-        const SHIFT_BITS: u32 = 32;
         let high = val >> SHIFT_BITS;
         let low = val & ((1u64 << SHIFT_BITS) - 1);
 
@@ -105,12 +116,28 @@ impl<B: Bucket<u32>> NodeSet for SparseRadixSet32<B> {
         SparseRadixSet32::new(num_nodes)
     }
     #[inline(always)]
+    fn len(&self) -> usize {
+        self.buckets.iter().map(|bucket| bucket.len()).sum()
+    }
+    #[inline(always)]
     fn insert(&mut self, node: usize) {
         SparseRadixSet32::insert(self, node);
     }
     #[inline(always)]
     fn contains(&self, node: usize) -> bool {
         SparseRadixSet32::contains(self, node)
+    }
+}
+
+impl<B: Bucket<u32>> IterableNodeSet for SparseRadixSet32<B> {
+    fn iter(&self) -> impl Iterator<Item = usize> {
+        self.buckets.iter().enumerate().flat_map(|(high, bucket)| {
+            let high = u64::try_from(high).unwrap();
+            bucket.iter().map(move |low| {
+                let v = (high << SHIFT_BITS) | u64::from(low);
+                usize::try_from(v).unwrap()
+            })
+        })
     }
 }
 

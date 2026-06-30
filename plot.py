@@ -11,6 +11,7 @@ relative to the fastest, plus an average-across-graphs chart.
 
 import argparse
 from pathlib import Path
+import re
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,28 +24,34 @@ UNBOUNDED_DEPTH = str(2**64 - 1)
 # Substring of the fully-qualified Rust type name -> readable label. Ordered:
 # the first matching substring wins, so more specific entries come first.
 DS_LABELS = [
-    ("SparseRadixSet32", {
-        "FxHasher": "SparseRadixSet32 (FxHasher)",
-        "RapidHasher": "SparseRadixSet32 (RapidHasher)",
-    }, "SparseRadixSet32"),
-    ("BlockBitset", None, "BlockBitset"),
-    ("SparseSet", None, "SparseSet"),
-    ("Bitmap64", None, "croaring (Bitmap64)"),
-    ("foldhash", None, "HashSet (foldhash)"),
-    ("rustc_hash", None, "HashSet (rustc-hash)"),
-    ("NoHashHasher", None, "HashSet (nohash)"),
-    ("gxhash", None, "HashSet (gxhash)"),
-    ("HashSet<usize>", None, "HashSet (Default)"),
-    ("FxHasher", None, "HashSet (FxHasher)"),
-    ("AHasher", None, "HashSet (AHasher)"),
-    ("WyHasherBuilder", None, "HashSet (WyHasher)"),
-    ("Xxh3DefaultBuilder", None, "HashSet (Xxh3)"),
-    ("RapidHasher", None, "HashSet (RapidHasher)"),
-    ("Vec<bool>", None, "Vec<bool>"),
-    ("BitVec", None, "BitVec"),
-    ("BTreeSet<usize>", None, "BTreeSet<usize>"),
-    ("RoaringTreemap", None, "RoaringTreemap"),
-    ("AdaptiveNodeSet", None, "AdaptiveNodeSet"),
+    ("AdaptiveNodeSet.*SparseRadixSet32.*RapidHasher.*BlockBitset", "Adaptive(SparseRadix32(Rapid), BlockBitSet)"),
+    ("AdaptiveNodeSet.*SparseRadixSet32.*FxHasher.*BlockBitset", "Adaptive(SparseRadix32(Fx), BlockBitSet)"),
+    ("AdaptiveNodeSet.*SparseRadixSet32.*FxHasher", "Adaptive(SparseRadix32(Fx))"),
+    ("AdaptiveNodeSet.*SparseRadixSet32.*RapidHasher", "Adaptive(SparseRadix32(Rapid))"),
+    ("AdaptiveNodeSet.*SparseRadixSet32.*BlockBitSet", "Adaptive(BlockBitSet)"),
+    ("AdaptiveNodeSet.*FxHasher", "Adaptive(Fx)"),
+    ("AdaptiveNodeSet.*RapidHasher", "Adaptive(Rapid)"),
+    ("AdaptiveNodeSet$", "Adaptive"),
+    ("SparseRadixSet32.*FxHasher", "SparseRadix32 (FxHasher)"),
+    ("SparseRadixSet32.*RapidHasher", "SparseRadix32 (RapidHasher)"),
+    ("SparseRadixSet32$", "SparseRadixSet32"),
+    ("BlockBitset", "BlockBitset"),
+    ("SparseSet", "SparseSet"),
+    ("Bitmap64", "croaring (Bitmap64)"),
+    ("foldhash", "HashSet (foldhash)"),
+    ("rustc_hash", "HashSet (rustc-hash)"),
+    ("NoHashHasher", "HashSet (nohash)"),
+    ("gxhash", "HashSet (gxhash)"),
+    ("HashSet<usize>", "HashSet (Default)"),
+    ("FxHasher", "HashSet (FxHasher)"),
+    ("AHasher", "HashSet (AHasher)"),
+    ("WyHasherBuilder", "HashSet (WyHasher)"),
+    ("Xxh3DefaultBuilder", "HashSet (Xxh3)"),
+    ("RapidHasher", "HashSet (RapidHasher)"),
+    ("Vec<bool>", "Vec<bool>"),
+    ("BitVec", "BitVec"),
+    ("BTreeSet<usize>", "BTreeSet<usize>"),
+    ("RoaringTreemap", "RoaringTreemap"),
 ]
 
 
@@ -54,13 +61,9 @@ def readable_ds_name(ds_full_name):
     Falls back to the last `::`-separated path component for unknown types so a
     newly added benchmark variant shows up instead of aborting the whole plot.
     """
-    for needle, sub_map, default in DS_LABELS:
-        if needle in ds_full_name:
-            if sub_map:
-                for sub_needle, label in sub_map.items():
-                    if sub_needle in ds_full_name:
-                        return label
-            return default
+    for needle, label in DS_LABELS:
+        if re.search(needle, ds_full_name):
+            return label
     return ds_full_name.split("::")[-1]
 
 

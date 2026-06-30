@@ -33,6 +33,11 @@ impl NodeSet for SparseSet {
     }
 
     #[inline(always)]
+    fn len(&self) -> usize {
+        unimplemented!("SparseSet::len");
+    }
+
+    #[inline(always)]
     fn insert(&mut self, node: usize) {
         if !self.contains(node) {
             self.sparse[node] = self.len;

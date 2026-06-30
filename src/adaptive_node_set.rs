@@ -1,7 +1,6 @@
-
+use crate::{IterableNodeSet, NodeSet};
 use std::collections::HashSet;
 use sux::prelude::*;
-use crate::NodeSet;
 
 /// Constant controlling when a [`AdaptiveNodeSet`] should be promoted from sparse to dense.
 ///
@@ -36,30 +35,26 @@ const PROMOTION_THRESHOLD: usize = 64;
 /// // Dense { data: BitVec { bits: [1072694272, 0], len: 100 } }
 /// ```
 #[derive(Debug)]
-pub enum AdaptiveNodeSet {
-    Sparse {
-        max_items: usize,
-        data: HashSet<usize>,
-    },
-    Dense {
-        data: BitVec,
-    },
+pub enum AdaptiveNodeSet<SPARSE: IterableNodeSet = HashSet<usize>, DENSE: NodeSet = BitVec> {
+    Sparse { max_items: usize, data: SPARSE },
+    Dense { data: DENSE },
 }
 
-impl AdaptiveNodeSet {
+impl<SPARSE: IterableNodeSet, DENSE: NodeSet> NodeSet for AdaptiveNodeSet<SPARSE, DENSE> {
     /// Creates an empty `AdaptiveNodeSet` that may only store node ids from `0` to `max_items-1`
-    #[inline(always)]
-    pub fn new(max_items: usize) -> Self {
+    fn new(max_items: usize) -> Self {
         AdaptiveNodeSet::Sparse {
             max_items,
-            data: HashSet::new(),
+            data: SPARSE::new(max_items),
         }
     }
-}
 
-impl NodeSet for AdaptiveNodeSet {
-    fn new(num_nodes: usize) -> Self {
-        AdaptiveNodeSet::new(num_nodes)
+    #[inline(always)]
+    fn len(&self) -> usize {
+        match self {
+            AdaptiveNodeSet::Sparse { max_items: _, data } => data.len(),
+            AdaptiveNodeSet::Dense { data } => data.len(),
+        }
     }
 
     /// Adds a node to the set
@@ -74,9 +69,9 @@ impl NodeSet for AdaptiveNodeSet {
                 data.insert(node);
                 if data.len() > *max_items / PROMOTION_THRESHOLD {
                     // Promote the hashset to a bitvec
-                    let mut new_data = BitVec::new(*max_items);
+                    let mut new_data = DENSE::new(*max_items);
                     for node in data.iter() {
-                        new_data.insert(*node);
+                        new_data.insert(node);
                     }
                     *self = AdaptiveNodeSet::Dense { data: new_data };
                 }
@@ -93,7 +88,7 @@ impl NodeSet for AdaptiveNodeSet {
     #[inline(always)]
     fn contains(&self, node: usize) -> bool {
         match self {
-            AdaptiveNodeSet::Sparse { max_items: _, data } => data.contains(&node),
+            AdaptiveNodeSet::Sparse { max_items: _, data } => data.contains(node),
             AdaptiveNodeSet::Dense { data } => data.contains(node),
         }
     }

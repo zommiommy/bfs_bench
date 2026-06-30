@@ -1,11 +1,12 @@
 #![deny(unconditional_recursion)]
-use std::time::Instant;
-use std::collections::{BTreeSet, HashSet, VecDeque};
 use anyhow::{Context, Result};
-use fxhash::FxBuildHasher;
-use webgraph::prelude::*;
-use sux::prelude::*;
+use fxhash::{FxBuildHasher, FxHashSet};
+use rapidhash::RapidHashSet;
 use roaring::RoaringTreemap;
+use std::collections::{BTreeSet, HashSet, VecDeque};
+use std::time::Instant;
+use sux::prelude::*;
+use webgraph::prelude::*;
 
 mod adaptive_node_set;
 use adaptive_node_set::AdaptiveNodeSet;
@@ -17,7 +18,7 @@ use block_bitset::BlockBitset;
 mod sparse_set;
 use sparse_set::SparseSet;
 
-use std::hash::{Hasher, BuildHasher, BuildHasherDefault, RandomState};
+use std::hash::{BuildHasher, BuildHasherDefault, Hasher, RandomState};
 
 pub trait BuildableHasher: BuildHasher {
     fn new() -> Self;
@@ -68,13 +69,27 @@ impl<H: Default + Hasher> BuildableHasher for BuildHasherDefault<H> {
 
 pub trait NodeSet {
     fn new(num_nodes: usize) -> Self;
+    fn len(&self) -> usize;
     fn insert(&mut self, key: usize);
     fn contains(&self, key: usize) -> bool;
+
+    fn is_empty(&self) -> bool {
+        self.len() > 0
+    }
+}
+
+pub trait IterableNodeSet: NodeSet {
+    fn iter(&self) -> impl Iterator<Item = usize>;
 }
 
 impl<S: BuildableHasher> NodeSet for HashSet<usize, S> {
     fn new(_num_nodes: usize) -> Self {
         HashSet::with_hasher(S::new())
+    }
+
+    #[inline(always)]
+    fn len(&self) -> usize {
+        HashSet::len(self)
     }
 
     #[inline(always)]
@@ -87,9 +102,20 @@ impl<S: BuildableHasher> NodeSet for HashSet<usize, S> {
     }
 }
 
+impl<H: crate::BuildableHasher> IterableNodeSet for HashSet<usize, H> {
+    fn iter(&self) -> impl Iterator<Item = usize> {
+        self.iter().copied()
+    }
+}
+
 impl NodeSet for BTreeSet<usize> {
     fn new(_num_nodes: usize) -> Self {
         BTreeSet::new()
+    }
+
+    #[inline(always)]
+    fn len(&self) -> usize {
+        BTreeSet::len(self)
     }
 
     #[inline(always)]
@@ -108,6 +134,11 @@ impl NodeSet for BitVec {
     }
 
     #[inline(always)]
+    fn len(&self) -> usize {
+        unimplemented!("BitVec::len() would be too slow")
+    }
+
+    #[inline(always)]
     fn insert(&mut self, node: usize) {
         self.set(node, true);
     }
@@ -123,6 +154,11 @@ impl NodeSet for Vec<bool> {
     }
 
     #[inline(always)]
+    fn len(&self) -> usize {
+        Vec::len(self)
+    }
+
+    #[inline(always)]
     fn insert(&mut self, node: usize) {
         self[node] = true;
     }
@@ -132,10 +168,14 @@ impl NodeSet for Vec<bool> {
     }
 }
 
-
 impl NodeSet for RoaringTreemap {
     fn new(_num_nodes: usize) -> Self {
         RoaringTreemap::new()
+    }
+
+    #[inline(always)]
+    fn len(&self) -> usize {
+        self.len() as usize
     }
 
     #[inline(always)]
@@ -151,6 +191,11 @@ impl NodeSet for RoaringTreemap {
 impl NodeSet for croaring::Bitmap64 {
     fn new(_num_nodes: usize) -> Self {
         croaring::Bitmap64::new()
+    }
+
+    #[inline(always)]
+    fn len(&self) -> usize {
+        unimplemented!("Bitmap64::len");
     }
 
     #[inline(always)]
@@ -216,14 +261,18 @@ fn all(graph: impl RandomAccessGraph, graph_path: &str) -> Result<()> {
             bench::<BitVec>(&graph, graph_path, root, depth, false)?;
             bench::<Vec<bool>>(&graph, graph_path, root, depth, false)?;
             bench::<AdaptiveNodeSet>(&graph, graph_path, root, depth, false)?;
+            bench::<AdaptiveNodeSet<FxHashSet<usize>>>(&graph, graph_path, root, depth, false)?;
+            bench::<AdaptiveNodeSet<SparseRadixSet32<FxHashSet<u32>>, BlockBitset>>(
+                &graph, graph_path, root, depth, false,
+            )?;
             bench::<RoaringTreemap>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, BuildHasherDefault<ahash::AHasher>>>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, FxBuildHasher>>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, wyhash::WyHasherBuilder>>(&graph, graph_path, root, depth, false)?;
             bench::<rapidhash::RapidHashSet<usize>>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, xxhash_rust::xxh3::Xxh3DefaultBuilder>>(&graph, graph_path, root, depth, false)?;
-            bench::<SparseRadixSet32<fxhash::FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
-            bench::<SparseRadixSet32<rapidhash::RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            bench::<SparseRadixSet32<FxHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
+            bench::<SparseRadixSet32<RapidHashSet<u32>>>(&graph, graph_path, root, depth, false)?;
             bench::<BlockBitset>(&graph, graph_path, root, depth, false)?;
             bench::<croaring::Bitmap64>(&graph, graph_path, root, depth, false)?;
             bench::<HashSet<usize, foldhash::fast::RandomState>>(&graph, graph_path, root, depth, false)?;
