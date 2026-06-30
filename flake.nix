@@ -41,6 +41,14 @@
             # System libraries
             zlib
             zlib.dev
+
+            # Python environment for plot.py
+            (python3.withPackages (ps: with ps; [
+              pandas
+              matplotlib
+              numpy
+              seaborn
+            ]))
           ]);
           
           profile = ''

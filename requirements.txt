@@ -1,0 +1,7 @@
+# Python dependencies for plot.py.
+# Install with: pip install -r requirements.txt
+# (Nix users get these from the dev shell instead; see flake.nix.)
+pandas
+matplotlib
+numpy
+seaborn
